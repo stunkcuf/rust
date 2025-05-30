@@ -1,0 +1,22 @@
+shattered_shores_rust/
+├── Cargo.toml
+├── index.html
+├── wasm-game/
+│   ├── Cargo.toml
+│   └── src/
+│       ├── lib.rs                 # WASM entrypoint
+│       ├── graphics.rs            # 3D engine (three-d or wgpu)
+│       ├── login.rs               # Session check
+│       ├── character/
+│       │   ├── mod.rs
+│       │   ├── creation.rs
+│       │   └── select.rs
+│       ├── systems/
+│       │   ├── mod.rs
+│       │   ├── clouds.rs
+│       │   ├── particles.rs
+│       │   ├── mystic_forest.rs
+│       │   └── shattered_shores.rs
+│       ├── multiplayer.rs         # SpacetimeDB integration
+│       ├── menu.rs                # Game UI
+│       └── utils.rs               # Shared tools
