@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RUST Knowledge Base - Complete Game Guide</title>
+    <meta name="description" content="Comprehensive RUST game guide covering building, PVP, monuments, resources, and survival strategies.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="rust-icon">🎮</span>
+                <h1>RUST Knowledge Base</h1>
+            </div>
+            <div class="nav-search">
+                <input type="text" id="searchInput" placeholder="Search guides..." aria-label="Search">
+                <span class="search-icon">🔍</span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <h3>Quick Reference</h3>
+                <ul class="quick-links">
+                    <li><a href="#" data-action="force-wipe">⏰ Force Wipe Schedule</a></li>
+                    <li><a href="#" data-action="raid-costs">💣 Raid Costs</a></li>
+                    <li><a href="#" data-action="top-weapons">⚔️ Top Weapons</a></li>
+                    <li><a href="#" data-action="scrap-farming">💰 Best Scrap Routes</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>📚 Knowledge Base</h3>
+                <nav class="guide-nav">
+                    <button class="guide-category active" data-guide="overview">
+                        <span class="icon">🏠</span> Overview
+                    </button>
+                    <button class="guide-category" data-guide="core-mechanics/01-progression-system">
+                        <span class="icon">⚙️</span> Progression System
+                    </button>
+                    <button class="guide-category" data-guide="building/01-building-tiers-and-upgrade">
+                        <span class="icon">🏗️</span> Building Tiers
+                    </button>
+                    <button class="guide-category" data-guide="building/02-base-designs-raid-defense">
+                        <span class="icon">🛡️</span> Base Designs
+                    </button>
+                    <button class="guide-category" data-guide="combat/01-weapons-tier-list-2025">
+                        <span class="icon">⚔️</span> Weapons & Combat
+                    </button>
+                    <button class="guide-category" data-guide="monuments/01-monument-guide-overview">
+                        <span class="icon">🏛️</span> Monuments
+                    </button>
+                    <button class="guide-category" data-guide="resources/01-resource-gathering-guide">
+                        <span class="icon">⛏️</span> Resource Gathering
+                    </button>
+                    <button class="guide-category" data-guide="servers/01-wipe-cycles-server-types">
+                        <span class="icon">🖥️</span> Servers & Wipes
+                    </button>
+                    <button class="guide-category" data-guide="survival/01-healing-food-environmental-systems">
+                        <span class="icon">❤️</span> Survival & Healing
+                    </button>
+                </nav>
+            </div>
+
+            <div class="sidebar-section tools-section">
+                <h3>🛠️ Tools</h3>
+                <ul class="tool-links">
+                    <li><a href="#" data-tool="raid-calculator">Raid Calculator</a></li>
+                    <li><a href="#" data-tool="monument-router">Monument Router</a></li>
+                    <li><a href="#" data-tool="wipe-timer">Wipe Timer</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="content">
+            <div id="contentArea">
+                <div class="welcome">
+                    <h1>🎮 Welcome to the RUST Knowledge Base</h1>
+                    <p class="subtitle">Complete guide for RUST - Building, PVP, Monuments, Resources & More</p>
+
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">⚙️</div>
+                            <h3>Progression</h3>
+                            <p>Workbenches, tech trees, blueprints, and scrap optimization</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🏗️</div>
+                            <h3>Building</h3>
+                            <p>Base designs, raid costs, honeycomb strategies, and defense</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">⚔️</div>
+                            <h3>Combat</h3>
+                            <p>Weapon tier lists, recoil patterns, and PVP tactics</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🏛️</div>
+                            <h3>Monuments</h3>
+                            <p>Loot routes, puzzles, and scrap farming optimization</p>
+                        </div>
+                    </div>
+
+                    <div class="quick-stats">
+                        <h2>📊 Quick Reference</h2>
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <h4>Force Wipe</h4>
+                                <p>First Thursday monthly<br>2:00 PM EST</p>
+                            </div>
+                            <div class="stat-card">
+                                <h4>Stone Wall Raid</h4>
+                                <p>2 C4<br>4,400 Sulfur</p>
+                            </div>
+                            <div class="stat-card">
+                                <h4>Sheet Metal Wall</h4>
+                                <p>4 C4<br>8,800 Sulfur</p>
+                            </div>
+                            <div class="stat-card">
+                                <h4>Armored Wall</h4>
+                                <p>8 C4<br>17,600 Sulfur</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cta-section">
+                        <h2>🚀 Get Started</h2>
+                        <p>Select a guide from the sidebar to begin, or use the search bar to find specific information.</p>
+                        <div class="cta-buttons">
+                            <button class="cta-btn primary" onclick="loadGuide('core-mechanics/01-progression-system')">
+                                Start Learning
+                            </button>
+                            <button class="cta-btn secondary" onclick="showQuickRef('raid-costs')">
+                                View Raid Costs
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="searchResults" class="search-results" style="display: none;">
+                <h2>Search Results</h2>
+                <div id="searchResultsList"></div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>RUST Knowledge Base - Comprehensive game guide for all skill levels</p>
+            <p class="meta">Data accurate as of January 2025 • <a href="https://github.com/stunkcuf/rust">GitHub</a></p>
+        </div>
+    </footer>
+
+    <!-- Markdown parser -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- Main app script -->
+    <script src="js/app.js"></script>
+</body>
+</html>
