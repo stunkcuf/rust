@@ -1,6 +1,6 @@
 // RUST Knowledge Base - Main App
 
-const KB_BASE_PATH = '../rust-knowledge-base';
+const KB_BASE_PATH = 'rust-knowledge-base';
 let allGuides = [];
 let searchIndex = [];
 
@@ -8,47 +8,47 @@ let searchIndex = [];
 const guides = {
     'overview': {
         title: 'Overview',
-        path: '../rust-knowledge-base/README.md',
+        path: 'rust-knowledge-base/README.md',
         category: 'General'
     },
     'core-mechanics/01-progression-system': {
         title: 'Progression System',
-        path: '../rust-knowledge-base/core-mechanics/01-progression-system.md',
+        path: 'rust-knowledge-base/core-mechanics/01-progression-system.md',
         category: 'Core Mechanics'
     },
     'building/01-building-tiers-and-upgrade': {
         title: 'Building Tiers & Upgrades',
-        path: '../rust-knowledge-base/building/01-building-tiers-and-upgrade.md',
+        path: 'rust-knowledge-base/building/01-building-tiers-and-upgrade.md',
         category: 'Building'
     },
     'building/02-base-designs-raid-defense': {
         title: 'Base Designs & Raid Defense',
-        path: '../rust-knowledge-base/building/02-base-designs-raid-defense.md',
+        path: 'rust-knowledge-base/building/02-base-designs-raid-defense.md',
         category: 'Building'
     },
     'combat/01-weapons-tier-list-2025': {
         title: 'Weapons & Combat Guide 2025',
-        path: '../rust-knowledge-base/combat/01-weapons-tier-list-2025.md',
+        path: 'rust-knowledge-base/combat/01-weapons-tier-list-2025.md',
         category: 'Combat'
     },
     'monuments/01-monument-guide-overview': {
         title: 'Monuments Guide',
-        path: '../rust-knowledge-base/monuments/01-monument-guide-overview.md',
+        path: 'rust-knowledge-base/monuments/01-monument-guide-overview.md',
         category: 'Monuments'
     },
     'resources/01-resource-gathering-guide': {
         title: 'Resource Gathering',
-        path: '../rust-knowledge-base/resources/01-resource-gathering-guide.md',
+        path: 'rust-knowledge-base/resources/01-resource-gathering-guide.md',
         category: 'Resources'
     },
     'servers/01-wipe-cycles-server-types': {
         title: 'Servers & Wipe Cycles',
-        path: '../rust-knowledge-base/servers/01-wipe-cycles-server-types.md',
+        path: 'rust-knowledge-base/servers/01-wipe-cycles-server-types.md',
         category: 'Servers'
     },
     'survival/01-healing-food-environmental-systems': {
         title: 'Survival & Healing',
-        path: '../rust-knowledge-base/survival/01-healing-food-environmental-systems.md',
+        path: 'rust-knowledge-base/survival/01-healing-food-environmental-systems.md',
         category: 'Survival'
     }
 };
