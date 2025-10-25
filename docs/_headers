@@ -1,11 +1,5 @@
-/css/*
+/*.css
   Content-Type: text/css
 
-/js/*
+/*.js
   Content-Type: application/javascript
-
-/*.html
-  Content-Type: text/html
-
-/*
-  Content-Type: text/html
