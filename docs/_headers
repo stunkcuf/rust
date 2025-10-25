@@ -1,10 +1,12 @@
-/*.css
+/css/*.css
   Content-Type: text/css; charset=utf-8
+  Cache-Control: public, max-age=3600
 
-/*.js
+/js/*.js
   Content-Type: application/javascript; charset=utf-8
+  Cache-Control: public, max-age=3600
 
-/*.md
+/rust-knowledge-base/*.md
   Content-Type: text/markdown; charset=utf-8
 
 /*.html
