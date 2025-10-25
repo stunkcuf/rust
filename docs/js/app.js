@@ -213,6 +213,20 @@ After wipe, rush to:
     }
 };
 
+// Toggle collapsible sections
+function toggleSection(header) {
+    const content = header.nextElementSibling;
+    const icon = header.querySelector('.toggle-icon');
+
+    if (content.style.display === 'none' || content.style.display === '') {
+        content.style.display = 'block';
+        icon.textContent = '▲';
+    } else {
+        content.style.display = 'none';
+        icon.textContent = '▼';
+    }
+}
+
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
     initializeNavigation();

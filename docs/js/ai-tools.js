@@ -17,7 +17,7 @@ function createSmartBaseDesigner() {
 
                 <div class="input-group">
                     <label>Group Size:</label>
-                    <select id="groupSize" onchange="updateBaseDesign()">
+                    <select id="groupSize">
                         <option value="solo">Solo</option>
                         <option value="duo">Duo (2 players)</option>
                         <option value="trio">Trio (3 players)</option>
@@ -28,7 +28,7 @@ function createSmartBaseDesigner() {
 
                 <div class="input-group">
                     <label>Available Resources:</label>
-                    <select id="resourceLevel" onchange="updateBaseDesign()">
+                    <select id="resourceLevel">
                         <option value="low">Low (starter base)</option>
                         <option value="medium">Medium (established)</option>
                         <option value="high">High (full farm)</option>
@@ -38,7 +38,7 @@ function createSmartBaseDesigner() {
 
                 <div class="input-group">
                     <label>Playstyle:</label>
-                    <select id="playstyle" onchange="updateBaseDesign()">
+                    <select id="playstyle">
                         <option value="pvp">PVP Focused</option>
                         <option value="farming">Farming/Grinding</option>
                         <option value="defensive">Defensive/Survival</option>
@@ -48,7 +48,7 @@ function createSmartBaseDesigner() {
 
                 <div class="input-group">
                     <label>Wipe Length:</label>
-                    <select id="wipeLength" onchange="updateBaseDesign()">
+                    <select id="wipeLength">
                         <option value="weekly">Weekly</option>
                         <option value="biweekly">Bi-weekly</option>
                         <option value="monthly">Monthly</option>
@@ -57,7 +57,7 @@ function createSmartBaseDesigner() {
 
                 <div class="input-group">
                     <label>Build Material Preference:</label>
-                    <select id="buildMaterial" onchange="updateBaseDesign()">
+                    <select id="buildMaterial">
                         <option value="stone">Stone (balanced)</option>
                         <option value="metal">Sheet Metal (strong)</option>
                         <option value="mixed">Mixed (optimized)</option>

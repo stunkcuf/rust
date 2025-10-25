@@ -37,10 +37,12 @@
                 </ul>
             </div>
 
-            <div class="sidebar-section">
-                <h3>📚 Knowledge Base</h3>
-                <nav class="guide-nav">
-                    <button class="guide-category active" data-guide="overview">
+            <div class="sidebar-section collapsible-section">
+                <h3 class="collapsible-header" onclick="toggleSection(this)">
+                    📚 Knowledge Base <span class="toggle-icon">▼</span>
+                </h3>
+                <nav class="guide-nav collapsible-content" style="display: none;">
+                    <button class="guide-category" data-guide="overview">
                         <span class="icon">🏠</span> Overview
                     </button>
                     <button class="guide-category" data-guide="core-mechanics/01-progression-system">
@@ -70,9 +72,11 @@
                 </nav>
             </div>
 
-            <div class="sidebar-section tools-section">
-                <h3>🛠️ Tools</h3>
-                <ul class="tool-links">
+            <div class="sidebar-section tools-section collapsible-section">
+                <h3 class="collapsible-header" onclick="toggleSection(this)">
+                    🛠️ Basic Tools <span class="toggle-icon">▼</span>
+                </h3>
+                <ul class="tool-links collapsible-content" style="display: none;">
                     <li><a href="#" data-tool="raid-calculator">Raid Calculator</a></li>
                     <li><a href="#" data-tool="monument-router">Monument Router</a></li>
                     <li><a href="#" data-tool="wipe-timer">Wipe Timer</a></li>

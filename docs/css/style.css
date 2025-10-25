@@ -133,6 +133,29 @@ code, pre {
     margin-bottom: 1rem;
 }
 
+.collapsible-header {
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: color 0.2s;
+}
+
+.collapsible-header:hover {
+    color: var(--primary);
+}
+
+.toggle-icon {
+    font-size: 0.75rem;
+    transition: transform 0.2s;
+}
+
+.collapsible-content {
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
 .quick-links, .tool-links {
     list-style: none;
 }
