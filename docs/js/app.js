@@ -422,6 +422,7 @@ function initializeTools() {
 }
 
 function showTool(tool) {
+    console.log('showTool called with:', tool);
     const contentArea = document.getElementById('contentArea');
     const searchResults = document.getElementById('searchResults');
 
@@ -440,19 +441,24 @@ function showTool(tool) {
             toolHTML = createWipeTimer();
             break;
         case 'smart-base-designer':
+            console.log('Calling createSmartBaseDesigner, exists:', typeof createSmartBaseDesigner);
             toolHTML = createSmartBaseDesigner();
             break;
         case 'map-location':
+            console.log('Calling createMapLocationAnalyzer, exists:', typeof createMapLocationAnalyzer);
             toolHTML = createMapLocationAnalyzer();
             break;
         case 'advanced-raid-calc':
+            console.log('Calling createAdvancedRaidCalculator, exists:', typeof createAdvancedRaidCalculator);
             toolHTML = createAdvancedRaidCalculator();
             break;
         case 'wipe-planner':
+            console.log('Calling createWipeStrategyPlanner, exists:', typeof createWipeStrategyPlanner);
             toolHTML = createWipeStrategyPlanner();
             break;
     }
 
+    console.log('toolHTML length:', toolHTML.length);
     contentArea.innerHTML = toolHTML;
 }
 

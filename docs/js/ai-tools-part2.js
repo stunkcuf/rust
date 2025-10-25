@@ -597,3 +597,5 @@ window.createWipeStrategyPlanner = createWipeStrategyPlanner;
 window.generateWipeStrategy = generateWipeStrategy;
 window.exportWipePlan = exportWipePlan;
 window.printWipePlan = printWipePlan;
+
+console.log('✅ AI Tools Part 2 loaded (Advanced Raid Calculator, Wipe Strategy Planner)');

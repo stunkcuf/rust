@@ -523,3 +523,5 @@ window.generateBaseAI = generateBaseAI;
 window.exportDesign = exportDesign;
 window.createMapLocationAnalyzer = createMapLocationAnalyzer;
 window.findBestLocation = findBestLocation;
+
+console.log('✅ AI Tools Part 1 loaded (Smart Base Designer, Map Location Analyzer)');
