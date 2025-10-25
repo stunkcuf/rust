@@ -1,28 +1,46 @@
-// AI-Powered RUST Tools - ENHANCED VERSION
-
-// ===================================
-// 1. SMART BASE DESIGNER AI - ENHANCED
-// ===================================
+// RUST BASE DESIGNER - ACCURATE VERSION
+// Uses actual RUST building mechanics: Squares + Triangles
 
 function createSmartBaseDesigner() {
     return `
         <div class="ai-tool-header">
-            <h1>🤖 Smart Base Designer AI</h1>
-            <p class="ai-subtitle">Get custom base designs with visual layouts and detailed room breakdowns</p>
+            <h1>🏗️ RUST Base Designer</h1>
+            <p class="ai-subtitle">Accurate base designs using square + triangle foundations</p>
         </div>
 
         <div class="ai-tool-grid">
             <div class="ai-input-section">
-                <h3>📊 Configure Your Base:</h3>
+                <h3>⚙️ Configure:</h3>
 
                 <div class="input-group">
                     <label>Group Size:</label>
                     <select id="groupSize">
                         <option value="solo">Solo</option>
-                        <option value="duo">Duo (2 players)</option>
-                        <option value="trio" selected>Trio (3 players)</option>
-                        <option value="quad">Quad (4 players)</option>
-                        <option value="zerg">Zerg (5+ players)</option>
+                        <option value="duo" selected>Duo</option>
+                        <option value="trio">Trio (3-4)</option>
+                        <option value="clan">Clan (5+)</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Base Design:</label>
+                    <select id="baseDesign">
+                        <option value="2x1">2x1 Starter</option>
+                        <option value="2x2" selected>2x2 Classic</option>
+                        <option value="2x2-bunker">2x2 Bunker</option>
+                        <option value="2x2-trap">2x2 Trap Base</option>
+                        <option value="3x3">3x3 Fortress</option>
+                        <option value="triangle-core">Triangle Core</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Honeycomb Layers:</label>
+                    <select id="honeycombLayers">
+                        <option value="0">None (Starter)</option>
+                        <option value="1" selected>1 Layer</option>
+                        <option value="2">2 Layers</option>
+                        <option value="3">3 Layers (Max)</option>
                     </select>
                 </div>
 
@@ -36,364 +54,313 @@ function createSmartBaseDesigner() {
                     </select>
                 </div>
 
-                <div class="input-group">
-                    <label>Base Type:</label>
-                    <select id="baseType">
-                        <option value="bunker">Bunker Base</option>
-                        <option value="tower">Tower Base</option>
-                        <option value="compound">Compound</option>
-                        <option value="cave">Cave Base</option>
-                        <option value="2x2">Classic 2x2</option>
-                        <option value="multi">Multi-TC Fortress</option>
-                    </select>
-                </div>
-
-                <div class="input-group">
-                    <label>Priority:</label>
-                    <select id="priority">
-                        <option value="defense">Max Defense</option>
-                        <option value="pvp">PVP Focus</option>
-                        <option value="farming">Farming/Storage</option>
-                        <option value="balanced" selected>Balanced</option>
-                    </select>
-                </div>
-
-                <div class="input-group">
-                    <label>Wipe Length:</label>
-                    <select id="wipeLength">
-                        <option value="weekly">Weekly</option>
-                        <option value="biweekly" selected>Bi-weekly</option>
-                        <option value="monthly">Monthly</option>
-                    </select>
-                </div>
-
-                <button class="ai-generate-btn" onclick="generateAdvancedBase()">
-                    🤖 Generate Custom Base Design
+                <button class="ai-generate-btn" onclick="generateRustBase()">
+                    🏗️ Generate Base Design
                 </button>
             </div>
 
-            <div class="ai-output-section" id="baseDesignOutput">
+            <div class="ai-output-section" id="baseOutput">
                 <div class="ai-thinking">
-                    <p>🤖 Configure your preferences and generate a custom base design</p>
-                    <p style="color: #888; margin-top: 10px;">Each design includes visual layout, room breakdown, and defense strategy</p>
+                    <p>🏗️ Select options and generate a base design</p>
+                    <p style="color: #888; margin-top: 10px;">Uses real RUST mechanics: square & triangle foundations</p>
                 </div>
             </div>
         </div>
     `;
 }
 
-function generateAdvancedBase() {
+function generateRustBase() {
     const groupSize = document.getElementById('groupSize').value;
+    const baseDesign = document.getElementById('baseDesign').value;
+    const honeycombLayers = parseInt(document.getElementById('honeycombLayers').value);
     const serverType = document.getElementById('serverType').value;
-    const baseType = document.getElementById('baseType').value;
-    const priority = document.getElementById('priority').value;
-    const wipeLength = document.getElementById('wipeLength').value;
 
-    document.getElementById('baseDesignOutput').innerHTML = `
+    document.getElementById('baseOutput').innerHTML = `
         <div class="ai-thinking">
             <div class="ai-loader"></div>
-            <p>🤖 AI analyzing optimal base design...</p>
-            <p class="ai-status">Processing ${baseType} layout for ${groupSize} on ${serverType}...</p>
+            <p>🏗️ Generating ${baseDesign} base...</p>
         </div>
     `;
 
     setTimeout(() => {
-        const design = generateDetailedBase(groupSize, serverType, baseType, priority, wipeLength);
-        displayAdvancedBase(design);
-    }, 1800);
+        const base = buildRustBase(baseDesign, honeycombLayers, groupSize, serverType);
+        displayRustBase(base);
+    }, 1200);
 }
 
-function generateDetailedBase(groupSize, serverType, baseType, priority, wipeLength) {
-    const baseTemplates = {
-        bunker: {
-            name: "Bunker Base",
-            layout: [
-                ["█", "█", "█", "█", "█"],
-                ["█", "L", "A", "T", "█"],
-                ["█", "S", "TC", "S", "█"],
-                ["█", "F", "E", "F", "█"],
-                ["█", "█", "█", "█", "█"]
+function buildRustBase(design, honeycomb, groupSize, serverType) {
+    // Base templates using actual RUST foundation shapes
+    // ■ = Square foundation
+    // ▲ = Triangle foundation
+    // Legend: TC=Tool Cupboard, L=Loot, A=Airlock, F=Furnace, S=Storage, E=Exit, T=Trap
+
+    const designs = {
+        '2x1': {
+            name: "2x1 Starter Base",
+            core: [
+                ['■TC', '■L']
             ],
-            rooms: ["TC Room", "Loot Room", "Airlock", "Furnace x2", "Storage x2", "Trap Floor", "Exit Bunker"],
-            features: ["Shooting floor roof", "Hidden bunker entrance", "Auto-turret placement", "Roof access via twig"],
-            description: "Compact defensible base with bunker entrance for offline protection"
+            honeycomb1: [
+                ['▲', '▲', '▲', '▲'],
+                ['▲', '■TC', '■L', '▲'],
+                ['▲', '▲', '▲', '▲']
+            ],
+            description: "Simple 2-square starter. Fast to build, upgrade to stone ASAP.",
+            rooms: ["Square 1: TC", "Square 2: Loot + Sleeping Bag"],
+            cost_base: { stone: 8000, metal: 2000, hqm: 100 },
+            raid_base: 8800
         },
-        tower: {
-            name: "Tower Base",
-            layout: [
-                ["█", "█", "█"],
-                ["█", "S", "█"],
-                ["█", "TC", "█"],
-                ["█", "L", "█"],
-                ["█", "F", "█"],
-                ["█", "E", "█"],
-                ["█", "█", "█"]
+        '2x2': {
+            name: "2x2 Classic",
+            core: [
+                ['■TC', '■L'],
+                ['■S', '■F']
             ],
-            rooms: ["Ground: Airlock", "Floor 1: TC + Trap", "Floor 2: Loot Room", "Floor 3: Furnaces", "Floor 4: Storage", "Roof: Sniper Nest"],
-            features: ["360° roof defense", "Multiple floors for loot spread", "Easy to build vertically", "Quick roof access"],
-            description: "Vertical design for height advantage and 360-degree defense"
+            honeycomb1: [
+                ['▲', '▲', '▲', '▲', '▲', '▲'],
+                ['▲', '■TC', '▲', '▲', '■L', '▲'],
+                ['▲', '▲', '▲', '▲', '▲', '▲'],
+                ['▲', '▲', '▲', '▲', '▲', '▲'],
+                ['▲', '■S', '▲', '▲', '■F', '▲'],
+                ['▲', '▲', '▲', '▲', '▲', '▲']
+            ],
+            honeycomb2: [
+                ['▲', '▲', '▲', '▲', '▲', '▲', '▲', '▲'],
+                ['▲', '▲', '▲', '▲', '▲', '▲', '▲', '▲'],
+                ['▲', '▲', '■TC', '▲', '▲', '■L', '▲', '▲'],
+                ['▲', '▲', '▲', '▲', '▲', '▲', '▲', '▲'],
+                ['▲', '▲', '▲', '▲', '▲', '▲', '▲', '▲'],
+                ['▲', '▲', '■S', '▲', '▲', '■F', '▲', '▲'],
+                ['▲', '▲', '▲', '▲', '▲', '▲', '▲', '▲'],
+                ['▲', '▲', '▲', '▲', '▲', '▲', '▲', '▲']
+            ],
+            description: "Most popular base. 4 squares in 2x2 grid. Triangle honeycomb for protection.",
+            rooms: ["Square 1: TC (armored)", "Square 2: Loot Room", "Square 3: Storage", "Square 4: Furnaces"],
+            cost_base: { stone: 30000, metal: 10000, hqm: 500 },
+            raid_base: 35200
         },
-        compound: {
-            name: "Compound Design",
-            layout: [
-                ["█", "█", "█", "█", "█", "█", "█"],
-                ["█", "S", "L", "█", "F", "F", "█"],
-                ["█", "█", "█", "█", "█", "█", "█"],
-                ["█", "TC", "█", "E", "█", "S", "█"],
-                ["█", "█", "█", "█", "█", "█", "█"],
-                ["█", "L", "L", "█", "T", "T", "█"],
-                ["█", "█", "█", "█", "█", "█", "█"]
+        '2x2-bunker': {
+            name: "2x2 Bunker Base",
+            core: [
+                ['■TC', '■L'],
+                ['■A', '■B']
             ],
-            rooms: ["Main TC Building", "Loot Building x2", "Furnace Building", "Storage Building", "Garage/Trap Building", "External TCs"],
-            features: ["Multiple buildings", "Compound walls", "Vehicle storage", "Separated loot for raid defense"],
-            description: "Multi-building compound for large groups with separated loot"
+            honeycomb1: [
+                ['▲', '▲', '▲', '▲', '▲', '▲'],
+                ['▲', '■TC', '▲', '▲', '■L', '▲'],
+                ['▲', '▲', '▲', '▲', '▲', '▲'],
+                ['▲', '▲', '▲', '▲', '▲', '▲'],
+                ['▲', '■A', '▲', '▲', '■B', '▲'],
+                ['▲', '▲', '▲', '▲', '▲', '▲']
+            ],
+            description: "2x2 with bunker entrance. No door when closed - removes stairs to seal.",
+            rooms: ["Square 1: TC (armored)", "Square 2: Loot Room", "Square 3: Airlock", "Square 4: BUNKER entrance (staircase stability)"],
+            features: ["Stability bunker - remove stairs to seal", "No raidable door when offline", "Requires precise building"],
+            cost_base: { stone: 35000, metal: 12000, hqm: 600 },
+            raid_base: 44000
         },
-        cave: {
-            name: "Cave Base",
-            layout: [
-                ["~", "~", "█", "█", "█", "~", "~"],
-                ["~", "█", "E", "A", "S", "█", "~"],
-                ["█", "█", "TC", "█", "L", "█", "█"],
-                ["█", "F", "F", "█", "L", "S", "█"],
-                ["~", "█", "T", "█", "█", "█", "~"],
-                ["~", "~", "█", "█", "~", "~", "~"]
+        '2x2-trap': {
+            name: "2x2 Trap Base",
+            core: [
+                ['■TC', '■L'],
+                ['■T', '■F']
             ],
-            rooms: ["Natural Cave Entrance", "TC Deep Inside", "Loot Rooms x2", "Furnace Area", "Storage", "Trap Tunnel"],
-            features: ["Natural cave protection", "Hard to raid foundation", "Multiple angles", "Cave-specific defenses"],
-            description: "Built inside natural cave for maximum protection"
+            honeycomb1: [
+                ['▲', '▲', '▲', '▲', '▲', '▲'],
+                ['▲', '■TC', '▲', '▲', '■L', '▲'],
+                ['▲', '▲', '▲', '▲', '▲', '▲'],
+                ['▲', '▲', '▲', '▲', '▲', '▲'],
+                ['▲', '■T', '▲', '▲', '■F', '▲'],
+                ['▲', '▲', '▲', '▲', '▲', '▲']
+            ],
+            description: "2x2 with dedicated trap floor. Shotgun traps + auto-turrets.",
+            rooms: ["Square 1: TC", "Square 2: Loot Room", "Square 3: TRAP FLOOR (shotgun traps, turrets)", "Square 4: Furnace + Storage"],
+            features: ["Murder corridors with shotgun traps", "Auto-turret coverage", "Fake loot room to bait raiders"],
+            cost_base: { stone: 32000, metal: 11000, hqm: 550 },
+            raid_base: 37400
         },
-        "2x2": {
-            name: "Classic 2x2",
-            layout: [
-                ["█", "█", "█", "█"],
-                ["█", "TC", "L", "█"],
-                ["█", "S", "F", "█"],
-                ["█", "█", "█", "█"]
+        '3x3': {
+            name: "3x3 Fortress",
+            core: [
+                ['■', '■', '■'],
+                ['■', '■TC', '■'],
+                ['■', '■', '■']
             ],
-            rooms: ["Core: TC + Loot", "Core: Storage + Furnace", "Honeycomb All Around", "Roof with Shooting Floor"],
-            features: ["Simple and efficient", "Easy to honeycomb", "Quick to build", "Classic meta design"],
-            description: "Time-tested 2x2 design - simple, effective, easy to build"
+            honeycomb1: [
+                ['▲', '▲', '▲', '▲', '▲', '▲', '▲'],
+                ['▲', '■', '▲', '■', '▲', '■', '▲'],
+                ['▲', '▲', '▲', '▲', '▲', '▲', '▲'],
+                ['▲', '■', '▲', '■TC', '▲', '■', '▲'],
+                ['▲', '▲', '▲', '▲', '▲', '▲', '▲'],
+                ['▲', '■', '▲', '■', '▲', '■', '▲'],
+                ['▲', '▲', '▲', '▲', '▲', '▲', '▲']
+            ],
+            description: "Large 3x3 grid (9 squares). Center TC. Triangle honeycomb creates maze.",
+            rooms: ["9 Square foundations", "Center: TC (armored)", "4 corners: Loot rooms", "4 sides: Storage, Furnaces, Airlocks, Traps"],
+            cost_base: { stone: 70000, metal: 25000, hqm: 1500 },
+            raid_base: 88000
         },
-        multi: {
-            name: "Multi-TC Fortress",
-            layout: [
-                ["█", "█", "█", "█", "█", "█", "█", "█"],
-                ["█", "TC", "L", "█", "█", "S", "F", "█"],
-                ["█", "█", "█", "█", "█", "█", "█", "█"],
-                ["█", "█", "█", "█", "█", "█", "█", "█"],
-                ["█", "T", "TC", "█", "█", "L", "TC", "█"],
-                ["█", "█", "█", "█", "█", "█", "█", "█"],
-                ["█", "█", "█", "█", "█", "█", "█", "█"],
-                ["█", "F", "S", "█", "█", "L", "S", "█"],
-                ["█", "█", "█", "█", "█", "█", "█", "█"]
+        'triangle-core': {
+            name: "Triangle Core Base",
+            core: [
+                ['·', '▲TC', '·'],
+                ['▲L', '▲', '▲S'],
+                ['·', '▲F', '·']
             ],
-            rooms: ["3x TC Buildings", "6x Loot Rooms", "4x Storage", "3x Furnace Areas", "2x Trap Areas", "Multiple Airlocks"],
-            features: ["Spread loot across multiple TCs", "Massive raid cost", "Multiple respawn points", "Redundant systems"],
-            description: "Massive fortress with multiple TCs for maximum security"
+            honeycomb1: [
+                ['▲', '▲', '▲', '▲', '▲'],
+                ['▲', '·', '▲TC', '·', '▲'],
+                ['▲', '▲L', '▲', '▲S', '▲'],
+                ['▲', '·', '▲F', '·', '▲'],
+                ['▲', '▲', '▲', '▲', '▲']
+            ],
+            description: "Unique triangle-based core. Confusing layout for raiders.",
+            rooms: ["6 Triangle foundations forming hexagon", "Center triangles: TC, Loot, Storage, Furnace"],
+            features: ["Asymmetric - harder to raid efficiently", "Compact design", "Good for tight spaces"],
+            cost_base: { stone: 25000, metal: 8000, hqm: 400 },
+            raid_base: 30800
         }
     };
 
-    const template = baseTemplates[baseType];
+    const template = designs[design];
 
-    // Calculate costs based on server type and group size
-    const serverMultipliers = { vanilla: 1, "2x": 0.5, "5x": 0.2, "10x": 0.1 };
-    const baseCosts = {
-        bunker: { stone: 45000, metal: 8000, hqm: 500 },
-        tower: { stone: 35000, metal: 6000, hqm: 300 },
-        compound: { stone: 95000, metal: 15000, hqm: 1200 },
-        cave: { stone: 25000, metal: 5000, hqm: 200 },
-        "2x2": { stone: 30000, metal: 5000, hqm: 250 },
-        multi: { stone: 150000, metal: 25000, hqm: 2000 }
-    };
+    // Select appropriate layout based on honeycomb layers
+    let layout = template.core;
+    if (honeycomb >= 1 && template.honeycomb1) layout = template.honeycomb1;
+    if (honeycomb >= 2 && template.honeycomb2) layout = template.honeycomb2;
 
-    const groupMultiplier = { solo: 0.6, duo: 0.8, trio: 1, quad: 1.3, zerg: 1.8 };
-    const multiplier = serverMultipliers[serverType] * groupMultiplier[groupSize];
+    // Calculate costs based on server type
+    const serverMult = { vanilla: 1, '2x': 0.5, '5x': 0.2, '10x': 0.1 };
+    const mult = serverMult[serverType] * (1 + honeycomb * 0.5);
 
     const costs = {
-        stone: Math.floor(baseCosts[baseType].stone * multiplier),
-        metal: Math.floor(baseCosts[baseType].metal * multiplier),
-        hqm: Math.floor(baseCosts[baseType].hqm * multiplier),
-        wood: Math.floor(20000 * multiplier)
+        stone: Math.floor(template.cost_base.stone * mult),
+        metal: Math.floor(template.cost_base.metal * mult),
+        hqm: Math.floor(template.cost_base.hqm * mult)
     };
 
-    // Raid costs
-    const raidCostBase = {
-        bunker: 60000,
-        tower: 45000,
-        compound: 120000,
-        cave: 35000,
-        "2x2": 40000,
-        multi: 200000
-    };
-
-    const priorityFeatures = {
-        defense: ["Extra honeycomb layer", "Armored TC room", "Hidden loot rooms", "Auto-turret positions"],
-        pvp: ["Roof access ladders", "Shooting floors", "Quick gear rooms", "Peek downs"],
-        farming: ["Large furnace base", "Organized storage", "Quick box access", "Sorting system"],
-        balanced: ["Standard honeycomb", "Good loot spread", "Roof defense", "Efficient layout"]
-    };
-
-    const buildTimes = { bunker: 90, tower: 60, compound: 150, cave: 70, "2x2": 45, multi: 240 };
-    const upkeepCosts = { bunker: 3500, tower: 2800, compound: 7500, cave: 2000, "2x2": 2500, multi: 12000 };
+    const raidCost = Math.floor(template.raid_base * (1 + honeycomb * 1.5));
 
     return {
         ...template,
+        layout,
+        honeycomb,
         costs,
-        raidCost: Math.floor(raidCostBase[baseType] * multiplier * 1.2),
-        buildTime: Math.floor(buildTimes[baseType] / groupMultiplier[groupSize]),
-        upkeep: Math.floor(upkeepCosts[baseType] * multiplier),
-        priorityFeatures: priorityFeatures[priority],
-        wipeLength,
-        serverType,
-        groupSize
+        raidCost,
+        serverType
     };
 }
 
-function displayAdvancedBase(design) {
-    const layoutHTML = design.layout.map(row =>
-        `<div class="base-row">${row.map(cell => {
-            const cellClass = cell === '█' ? 'wall' : cell === '~' ? 'empty' : 'room';
-            return `<div class="base-cell ${cellClass}" title="${getCellName(cell)}">${cell}</div>`;
+function displayRustBase(base) {
+    const layoutHTML = base.layout.map(row =>
+        `<div class="rust-row">${row.map(cell => {
+            const isSquare = cell.includes('■');
+            const isTriangle = cell.includes('▲') || cell.includes('▼');
+            const isEmpty = cell === '·' || cell === '';
+            const cellClass = isSquare ? 'square' : isTriangle ? 'triangle' : 'empty';
+            const label = cell.replace('■', '').replace('▲', '').replace('▼', '');
+            return `<div class="rust-cell ${cellClass}" title="${getFoundationName(cell)}">${cell}</div>`;
         }).join('')}</div>`
     ).join('');
 
-    document.getElementById('baseDesignOutput').innerHTML = `
-        <div class="base-design-result">
-            <div class="design-header">
-                <h2>🏗️ ${design.name}</h2>
-                <p class="design-desc">${design.description}</p>
-                <div class="design-badges">
-                    <span class="badge">${design.groupSize.toUpperCase()}</span>
-                    <span class="badge">${design.serverType}</span>
-                    <span class="badge">${design.wipeLength}</span>
+    document.getElementById('baseOutput').innerHTML = `
+        <div class="rust-base-result">
+            <div class="base-header">
+                <h2>${base.name}</h2>
+                <p class="base-desc">${base.description}</p>
+                <div class="base-tags">
+                    <span class="tag">${base.honeycomb} Honeycomb Layer${base.honeycomb !== 1 ? 's' : ''}</span>
+                    <span class="tag">${base.serverType}</span>
                 </div>
             </div>
 
-            <div class="design-layout">
-                <h3>📐 Base Layout</h3>
-                <div class="base-grid">
+            <div class="base-foundation-layout">
+                <h3>🏗️ Foundation Layout</h3>
+                <p class="layout-note">Top-down view of foundations</p>
+                <div class="rust-grid">
                     ${layoutHTML}
                 </div>
-                <div class="layout-legend">
-                    <span><strong>█</strong> = Wall/Honeycomb</span>
-                    <span><strong>TC</strong> = Tool Cupboard</span>
-                    <span><strong>L</strong> = Loot Room</span>
-                    <span><strong>S</strong> = Storage</span>
-                    <span><strong>F</strong> = Furnace</span>
-                    <span><strong>E</strong> = Entrance</span>
-                    <span><strong>A</strong> = Airlock</span>
-                    <span><strong>T</strong> = Trap</span>
-                    <span><strong>~</strong> = Open/Cave</span>
+                <div class="foundation-legend">
+                    <div><strong>■</strong> = Square Foundation</div>
+                    <div><strong>▲</strong> = Triangle Foundation</div>
+                    <div><strong>TC</strong> = Tool Cupboard</div>
+                    <div><strong>L</strong> = Loot Room</div>
+                    <div><strong>S</strong> = Storage</div>
+                    <div><strong>F</strong> = Furnace</div>
+                    <div><strong>A</strong> = Airlock</div>
+                    <div><strong>T</strong> = Trap</div>
+                    <div><strong>B</strong> = Bunker</div>
                 </div>
             </div>
 
-            <div class="design-rooms">
-                <h3>🚪 Room Breakdown</h3>
-                <ul class="room-list">
-                    ${design.rooms.map(room => `<li>✓ ${room}</li>`).join('')}
+            <div class="base-rooms">
+                <h3>🚪 Room Configuration</h3>
+                <ul>
+                    ${base.rooms.map(room => `<li>${room}</li>`).join('')}
                 </ul>
             </div>
 
-            <div class="design-features">
-                <h3>⚡ Key Features</h3>
-                <ul class="feature-list">
-                    ${design.features.map(f => `<li>🔹 ${f}</li>`).join('')}
-                </ul>
-            </div>
+            ${base.features ? `
+                <div class="base-features">
+                    <h3>⚡ Special Features</h3>
+                    <ul>
+                        ${base.features.map(f => `<li>${f}</li>`).join('')}
+                    </ul>
+                </div>
+            ` : ''}
 
-            <div class="design-priority">
-                <h3>🎯 Priority Optimizations</h3>
-                <ul class="feature-list">
-                    ${design.priorityFeatures.map(f => `<li>⭐ ${f}</li>`).join('')}
-                </ul>
-            </div>
-
-            <div class="design-stats">
-                <div class="stat-card">
+            <div class="base-stats-grid">
+                <div class="stat-box">
                     <h4>💰 Build Cost</h4>
-                    <p>${design.costs.stone.toLocaleString()} Stone<br>
-                    ${design.costs.metal.toLocaleString()} Metal Frags<br>
-                    ${design.costs.hqm.toLocaleString()} HQM<br>
-                    ${design.costs.wood.toLocaleString()} Wood</p>
+                    <p>${base.costs.stone.toLocaleString()} Stone</p>
+                    <p>${base.costs.metal.toLocaleString()} Metal Frags</p>
+                    <p>${base.costs.hqm.toLocaleString()} HQM</p>
                 </div>
-                <div class="stat-card">
+                <div class="stat-box">
                     <h4>🛡️ Raid Cost</h4>
-                    <p><strong style="color: #ce422b">${design.raidCost.toLocaleString()}</strong> Sulfur</p>
-                    <p>${Math.ceil(design.raidCost / 2200)} C4<br>
-                    or ${Math.ceil(design.raidCost / 1400)} Rockets</p>
-                </div>
-                <div class="stat-card">
-                    <h4>⏱️ Build Time</h4>
-                    <p><strong>${design.buildTime}</strong> minutes</p>
-                    <p>${Math.floor(design.buildTime / 60)}h ${design.buildTime % 60}m estimated</p>
-                </div>
-                <div class="stat-card">
-                    <h4>📅 Daily Upkeep</h4>
-                    <p>${design.upkeep.toLocaleString()} resources/day</p>
-                    <p>Plan for ${Math.ceil(design.upkeep / 1000)}K per day</p>
+                    <p style="color: #ce422b; font-size: 1.5em;">${base.raidCost.toLocaleString()}</p>
+                    <p>Sulfur</p>
+                    <p>${Math.ceil(base.raidCost / 2200)} C4 | ${Math.ceil(base.raidCost / 1400)} Rockets</p>
                 </div>
             </div>
 
-            <div class="design-tips">
-                <h3>💡 Pro Tips for This Design</h3>
-                <div class="tips-grid">
-                    <div class="tip">
-                        <strong>Building Priority:</strong>
-                        <p>1. Build TC first and honeycomb<br>
-                        2. Add airlock and doors<br>
-                        3. Build loot rooms<br>
-                        4. Add shooting floor/roof</p>
-                    </div>
-                    <div class="tip">
-                        <strong>Defense Setup:</strong>
-                        <p>Place auto-turrets at key choke points. Use shotgun traps in airlocks. Keep roof clear for PVP.</p>
-                    </div>
-                    <div class="tip">
-                        <strong>Loot Organization:</strong>
-                        <p>Spread valuable items across multiple rooms. Use small boxes for important BPs. Keep boom separate.</p>
-                    </div>
-                </div>
+            <div class="build-tips">
+                <h3>💡 Build Tips</h3>
+                <ul>
+                    <li>Place foundations first, then upgrade before adding walls</li>
+                    <li>Build honeycomb triangles AFTER core is complete</li>
+                    <li>Upgrade TC room to armored first</li>
+                    <li>Add airlocks and doors before logging off</li>
+                    <li>Place sleeping bags in multiple locations</li>
+                </ul>
             </div>
 
-            <button class="ai-generate-btn" onclick="generateAdvancedBase()" style="margin-top: 20px;">
-                🔄 Generate New Design
+            <button class="ai-generate-btn" onclick="generateRustBase()" style="margin-top: 20px;">
+                🔄 Generate Different Design
             </button>
         </div>
     `;
 }
 
-function getCellName(cell) {
-    const names = {
-        '█': 'Wall/Honeycomb',
-        'TC': 'Tool Cupboard',
-        'L': 'Loot Room',
-        'S': 'Storage',
-        'F': 'Furnace',
-        'E': 'Entrance',
-        'A': 'Airlock',
-        'T': 'Trap',
-        '~': 'Open Space'
-    };
-    return names[cell] || 'Room';
+function getFoundationName(cell) {
+    if (cell.includes('■')) return 'Square Foundation: ' + cell.replace('■', '');
+    if (cell.includes('▲')) return 'Triangle Foundation: ' + cell.replace('▲', '');
+    return 'Empty';
 }
 
-// ===================================
-// 2. MAP LOCATION ANALYZER
-// ===================================
-
+// Placeholder for Map Location (coming soon)
 function createMapLocationAnalyzer() {
-    return `Map Location Analyzer - Coming Soon!`;
+    return `<div class="ai-tool-header"><h1>📍 Map Location AI</h1><p>Coming soon!</p></div>`;
 }
 
 function findBestLocation() {
     alert('Map Location feature - Coming soon!');
 }
 
-// Export functions to global scope
+// Export to global scope
 window.createSmartBaseDesigner = createSmartBaseDesigner;
-window.generateAdvancedBase = generateAdvancedBase;
-window.getCellName = getCellName;
+window.generateRustBase = generateRustBase;
 window.createMapLocationAnalyzer = createMapLocationAnalyzer;
 window.findBestLocation = findBestLocation;
 
-console.log('✅ AI Tools Part 1 loaded (Enhanced Smart Base Designer, Map Location Analyzer)');
+console.log('✅ RUST Base Designer loaded (with actual square + triangle foundations!)');
