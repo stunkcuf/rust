@@ -425,6 +425,18 @@ function showTool(tool) {
         case 'wipe-timer':
             toolHTML = createWipeTimer();
             break;
+        case 'smart-base-designer':
+            toolHTML = createSmartBaseDesigner();
+            break;
+        case 'map-location':
+            toolHTML = createMapLocationAnalyzer();
+            break;
+        case 'advanced-raid-calc':
+            toolHTML = createAdvancedRaidCalculator();
+            break;
+        case 'wipe-planner':
+            toolHTML = createWipeStrategyPlanner();
+            break;
     }
 
     contentArea.innerHTML = toolHTML;
