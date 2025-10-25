@@ -697,6 +697,226 @@
     color: #2196f3;
 }
 
+/* Base Grid Layouts */
+.base-design-result {
+    animation: fadeIn 0.5s;
+}
+
+.design-header {
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #3a3a3a;
+    margin-bottom: 30px;
+}
+
+.design-badges {
+    display: flex;
+    gap: 10px;
+    margin: 15px 0;
+    justify-content: center;
+}
+
+.badge {
+    background: linear-gradient(135deg, #ce422b 0%, #a33522 100%);
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.design-desc {
+    color: #bbb;
+    font-size: 16px;
+    margin: 15px 0;
+}
+
+.design-layout {
+    margin: 30px 0;
+    padding: 25px;
+    background: #2d2d2d;
+    border-radius: 12px;
+    border: 1px solid #3a3a3a;
+}
+
+.design-layout h3 {
+    color: #ce422b;
+    margin-bottom: 20px;
+}
+
+.base-grid {
+    display: inline-block;
+    border: 3px solid #ce422b;
+    padding: 12px;
+    background: #1a1a1a;
+    border-radius: 8px;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.base-row {
+    display: flex;
+    gap: 3px;
+}
+
+.base-cell {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 13px;
+    border-radius: 4px;
+    transition: all 0.2s;
+    cursor: help;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.base-cell.wall {
+    background: #555;
+    color: #888;
+}
+
+.base-cell.room {
+    background: linear-gradient(135deg, #ce422b 0%, #a33522 100%);
+    color: #fff;
+    font-weight: bold;
+}
+
+.base-cell.empty {
+    background: transparent;
+    color: #333;
+    border: 1px dashed #333;
+}
+
+.base-cell:hover {
+    transform: scale(1.15);
+    z-index: 10;
+    box-shadow: 0 0 15px rgba(206, 66, 43, 0.6);
+}
+
+.layout-legend {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    font-size: 13px;
+    color: #aaa;
+    padding: 15px;
+    background: #1a1a1a;
+    border-radius: 6px;
+}
+
+.layout-legend span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.layout-legend strong {
+    color: #ce422b;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.design-rooms,
+.design-features,
+.design-priority,
+.design-tips {
+    margin: 30px 0;
+    padding: 25px;
+    background: #2d2d2d;
+    border-radius: 12px;
+    border: 1px solid #3a3a3a;
+}
+
+.design-rooms h3,
+.design-features h3,
+.design-priority h3,
+.design-tips h3 {
+    margin-bottom: 15px;
+    color: #ce422b;
+}
+
+.room-list,
+.feature-list {
+    list-style: none;
+    padding: 0;
+}
+
+.room-list li,
+.feature-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #3a3a3a;
+    color: #e0e0e0;
+}
+
+.room-list li:last-child,
+.feature-list li:last-child {
+    border-bottom: none;
+}
+
+.design-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.design-stats .stat-card {
+    background: #2d2d2d;
+    padding: 20px;
+    border-radius: 12px;
+    border: 2px solid #3a3a3a;
+    transition: all 0.3s;
+}
+
+.design-stats .stat-card:hover {
+    border-color: #ce422b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(206, 66, 43, 0.2);
+}
+
+.design-stats .stat-card h4 {
+    color: #ce422b;
+    margin-bottom: 12px;
+    font-size: 15px;
+}
+
+.design-stats .stat-card p {
+    color: #e0e0e0;
+    line-height: 1.8;
+    margin: 5px 0;
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.tip {
+    background: #3a3a3a;
+    padding: 18px;
+    border-radius: 8px;
+    border: 1px solid #444;
+}
+
+.tip strong {
+    color: #ce422b;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.tip p {
+    color: #ccc;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
 /* Responsive */
 @media (max-width: 968px) {
     .ai-tool-grid {

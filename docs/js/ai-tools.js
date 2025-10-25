@@ -1,48 +1,60 @@
-// AI-Powered RUST Tools
+// AI-Powered RUST Tools - ENHANCED VERSION
 
 // ===================================
-// 1. SMART BASE DESIGNER AI
+// 1. SMART BASE DESIGNER AI - ENHANCED
 // ===================================
 
 function createSmartBaseDesigner() {
     return `
         <div class="ai-tool-header">
             <h1>🤖 Smart Base Designer AI</h1>
-            <p class="ai-subtitle">AI-powered base design generator based on your needs</p>
+            <p class="ai-subtitle">Get custom base designs with visual layouts and detailed room breakdowns</p>
         </div>
 
         <div class="ai-tool-grid">
             <div class="ai-input-section">
-                <h3>📊 Tell me about your team:</h3>
+                <h3>📊 Configure Your Base:</h3>
 
                 <div class="input-group">
                     <label>Group Size:</label>
                     <select id="groupSize">
                         <option value="solo">Solo</option>
                         <option value="duo">Duo (2 players)</option>
-                        <option value="trio">Trio (3 players)</option>
+                        <option value="trio" selected>Trio (3 players)</option>
                         <option value="quad">Quad (4 players)</option>
                         <option value="zerg">Zerg (5+ players)</option>
                     </select>
                 </div>
 
                 <div class="input-group">
-                    <label>Available Resources:</label>
-                    <select id="resourceLevel">
-                        <option value="low">Low (starter base)</option>
-                        <option value="medium">Medium (established)</option>
-                        <option value="high">High (full farm)</option>
-                        <option value="unlimited">Unlimited (creative)</option>
+                    <label>Server Type:</label>
+                    <select id="serverType">
+                        <option value="vanilla">Vanilla</option>
+                        <option value="2x" selected>2x</option>
+                        <option value="5x">5x</option>
+                        <option value="10x">10x</option>
                     </select>
                 </div>
 
                 <div class="input-group">
-                    <label>Playstyle:</label>
-                    <select id="playstyle">
-                        <option value="pvp">PVP Focused</option>
-                        <option value="farming">Farming/Grinding</option>
-                        <option value="defensive">Defensive/Survival</option>
-                        <option value="balanced">Balanced</option>
+                    <label>Base Type:</label>
+                    <select id="baseType">
+                        <option value="bunker">Bunker Base</option>
+                        <option value="tower">Tower Base</option>
+                        <option value="compound">Compound</option>
+                        <option value="cave">Cave Base</option>
+                        <option value="2x2">Classic 2x2</option>
+                        <option value="multi">Multi-TC Fortress</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Priority:</label>
+                    <select id="priority">
+                        <option value="defense">Max Defense</option>
+                        <option value="pvp">PVP Focus</option>
+                        <option value="farming">Farming/Storage</option>
+                        <option value="balanced" selected>Balanced</option>
                     </select>
                 </div>
 
@@ -50,478 +62,338 @@ function createSmartBaseDesigner() {
                     <label>Wipe Length:</label>
                     <select id="wipeLength">
                         <option value="weekly">Weekly</option>
-                        <option value="biweekly">Bi-weekly</option>
+                        <option value="biweekly" selected>Bi-weekly</option>
                         <option value="monthly">Monthly</option>
                     </select>
                 </div>
 
-                <div class="input-group">
-                    <label>Build Material Preference:</label>
-                    <select id="buildMaterial">
-                        <option value="stone">Stone (balanced)</option>
-                        <option value="metal">Sheet Metal (strong)</option>
-                        <option value="mixed">Mixed (optimized)</option>
-                    </select>
-                </div>
-
-                <button class="ai-generate-btn" onclick="generateBaseAI()">
-                    🤖 Generate AI Base Design
+                <button class="ai-generate-btn" onclick="generateAdvancedBase()">
+                    🤖 Generate Custom Base Design
                 </button>
             </div>
 
             <div class="ai-output-section" id="baseDesignOutput">
                 <div class="ai-thinking">
-                    <p>🤖 Configure your preferences and click "Generate AI Base Design"</p>
+                    <p>🤖 Configure your preferences and generate a custom base design</p>
+                    <p style="color: #888; margin-top: 10px;">Each design includes visual layout, room breakdown, and defense strategy</p>
                 </div>
             </div>
         </div>
     `;
 }
 
-function generateBaseAI() {
+function generateAdvancedBase() {
     const groupSize = document.getElementById('groupSize').value;
-    const resourceLevel = document.getElementById('resourceLevel').value;
-    const playstyle = document.getElementById('playstyle').value;
+    const serverType = document.getElementById('serverType').value;
+    const baseType = document.getElementById('baseType').value;
+    const priority = document.getElementById('priority').value;
     const wipeLength = document.getElementById('wipeLength').value;
-    const buildMaterial = document.getElementById('buildMaterial').value;
 
-    // Show loading animation
     document.getElementById('baseDesignOutput').innerHTML = `
         <div class="ai-thinking">
             <div class="ai-loader"></div>
-            <p>🤖 AI analyzing your requirements...</p>
-            <p class="ai-status">Processing base design optimization...</p>
+            <p>🤖 AI analyzing optimal base design...</p>
+            <p class="ai-status">Processing ${baseType} layout for ${groupSize} on ${serverType}...</p>
         </div>
     `;
 
-    // Simulate AI processing
     setTimeout(() => {
-        const design = calculateOptimalBase(groupSize, resourceLevel, playstyle, wipeLength, buildMaterial);
-        displayBaseDesign(design);
-    }, 1500);
+        const design = generateDetailedBase(groupSize, serverType, baseType, priority, wipeLength);
+        displayAdvancedBase(design);
+    }, 1800);
 }
 
-function calculateOptimalBase(groupSize, resourceLevel, playstyle, wipeLength, buildMaterial) {
-    // AI decision tree for base design
-    const designs = {
-        solo: {
-            low: { size: '2x1', honeycomb: 1, rooms: 2, tc: 1 },
-            medium: { size: '2x2', honeycomb: 2, rooms: 4, tc: 1 },
-            high: { size: '2x2+', honeycomb: 3, rooms: 6, tc: 1 }
+function generateDetailedBase(groupSize, serverType, baseType, priority, wipeLength) {
+    const baseTemplates = {
+        bunker: {
+            name: "Bunker Base",
+            layout: [
+                ["█", "█", "█", "█", "█"],
+                ["█", "L", "A", "T", "█"],
+                ["█", "S", "TC", "S", "█"],
+                ["█", "F", "E", "F", "█"],
+                ["█", "█", "█", "█", "█"]
+            ],
+            rooms: ["TC Room", "Loot Room", "Airlock", "Furnace x2", "Storage x2", "Trap Floor", "Exit Bunker"],
+            features: ["Shooting floor roof", "Hidden bunker entrance", "Auto-turret placement", "Roof access via twig"],
+            description: "Compact defensible base with bunker entrance for offline protection"
         },
-        duo: {
-            low: { size: '2x2', honeycomb: 1, rooms: 4, tc: 1 },
-            medium: { size: '3x3', honeycomb: 2, rooms: 8, tc: 1 },
-            high: { size: '3x3+', honeycomb: 3, rooms: 12, tc: 2 }
+        tower: {
+            name: "Tower Base",
+            layout: [
+                ["█", "█", "█"],
+                ["█", "S", "█"],
+                ["█", "TC", "█"],
+                ["█", "L", "█"],
+                ["█", "F", "█"],
+                ["█", "E", "█"],
+                ["█", "█", "█"]
+            ],
+            rooms: ["Ground: Airlock", "Floor 1: TC + Trap", "Floor 2: Loot Room", "Floor 3: Furnaces", "Floor 4: Storage", "Roof: Sniper Nest"],
+            features: ["360° roof defense", "Multiple floors for loot spread", "Easy to build vertically", "Quick roof access"],
+            description: "Vertical design for height advantage and 360-degree defense"
         },
-        trio: {
-            low: { size: '2x3', honeycomb: 2, rooms: 6, tc: 1 },
-            medium: { size: '3x3', honeycomb: 3, rooms: 12, tc: 2 },
-            high: { size: '4x4', honeycomb: 3, rooms: 16, tc: 2 }
+        compound: {
+            name: "Compound Design",
+            layout: [
+                ["█", "█", "█", "█", "█", "█", "█"],
+                ["█", "S", "L", "█", "F", "F", "█"],
+                ["█", "█", "█", "█", "█", "█", "█"],
+                ["█", "TC", "█", "E", "█", "S", "█"],
+                ["█", "█", "█", "█", "█", "█", "█"],
+                ["█", "L", "L", "█", "T", "T", "█"],
+                ["█", "█", "█", "█", "█", "█", "█"]
+            ],
+            rooms: ["Main TC Building", "Loot Building x2", "Furnace Building", "Storage Building", "Garage/Trap Building", "External TCs"],
+            features: ["Multiple buildings", "Compound walls", "Vehicle storage", "Separated loot for raid defense"],
+            description: "Multi-building compound for large groups with separated loot"
         },
-        quad: {
-            low: { size: '3x3', honeycomb: 2, rooms: 9, tc: 2 },
-            medium: { size: '4x4', honeycomb: 3, rooms: 16, tc: 2 },
-            high: { size: '5x5', honeycomb: 4, rooms: 25, tc: 3 }
+        cave: {
+            name: "Cave Base",
+            layout: [
+                ["~", "~", "█", "█", "█", "~", "~"],
+                ["~", "█", "E", "A", "S", "█", "~"],
+                ["█", "█", "TC", "█", "L", "█", "█"],
+                ["█", "F", "F", "█", "L", "S", "█"],
+                ["~", "█", "T", "█", "█", "█", "~"],
+                ["~", "~", "█", "█", "~", "~", "~"]
+            ],
+            rooms: ["Natural Cave Entrance", "TC Deep Inside", "Loot Rooms x2", "Furnace Area", "Storage", "Trap Tunnel"],
+            features: ["Natural cave protection", "Hard to raid foundation", "Multiple angles", "Cave-specific defenses"],
+            description: "Built inside natural cave for maximum protection"
         },
-        zerg: {
-            low: { size: '4x4', honeycomb: 2, rooms: 16, tc: 2 },
-            medium: { size: '5x5', honeycomb: 3, rooms: 25, tc: 3 },
-            high: { size: '6x6+', honeycomb: 4, rooms: 36, tc: 4 }
+        "2x2": {
+            name: "Classic 2x2",
+            layout: [
+                ["█", "█", "█", "█"],
+                ["█", "TC", "L", "█"],
+                ["█", "S", "F", "█"],
+                ["█", "█", "█", "█"]
+            ],
+            rooms: ["Core: TC + Loot", "Core: Storage + Furnace", "Honeycomb All Around", "Roof with Shooting Floor"],
+            features: ["Simple and efficient", "Easy to honeycomb", "Quick to build", "Classic meta design"],
+            description: "Time-tested 2x2 design - simple, effective, easy to build"
+        },
+        multi: {
+            name: "Multi-TC Fortress",
+            layout: [
+                ["█", "█", "█", "█", "█", "█", "█", "█"],
+                ["█", "TC", "L", "█", "█", "S", "F", "█"],
+                ["█", "█", "█", "█", "█", "█", "█", "█"],
+                ["█", "█", "█", "█", "█", "█", "█", "█"],
+                ["█", "T", "TC", "█", "█", "L", "TC", "█"],
+                ["█", "█", "█", "█", "█", "█", "█", "█"],
+                ["█", "█", "█", "█", "█", "█", "█", "█"],
+                ["█", "F", "S", "█", "█", "L", "S", "█"],
+                ["█", "█", "█", "█", "█", "█", "█", "█"]
+            ],
+            rooms: ["3x TC Buildings", "6x Loot Rooms", "4x Storage", "3x Furnace Areas", "2x Trap Areas", "Multiple Airlocks"],
+            features: ["Spread loot across multiple TCs", "Massive raid cost", "Multiple respawn points", "Redundant systems"],
+            description: "Massive fortress with multiple TCs for maximum security"
         }
     };
 
-    const baseDesign = designs[groupSize][resourceLevel] || designs.solo.medium;
+    const template = baseTemplates[baseType];
 
-    // Calculate costs based on material
-    const materialCosts = {
-        stone: { stone: 1, metal: 0.2, hqm: 0 },
-        metal: { stone: 0.5, metal: 1, hqm: 0.1 },
-        mixed: { stone: 0.7, metal: 0.6, hqm: 0.05 }
+    // Calculate costs based on server type and group size
+    const serverMultipliers = { vanilla: 1, "2x": 0.5, "5x": 0.2, "10x": 0.1 };
+    const baseCosts = {
+        bunker: { stone: 45000, metal: 8000, hqm: 500 },
+        tower: { stone: 35000, metal: 6000, hqm: 300 },
+        compound: { stone: 95000, metal: 15000, hqm: 1200 },
+        cave: { stone: 25000, metal: 5000, hqm: 200 },
+        "2x2": { stone: 30000, metal: 5000, hqm: 250 },
+        multi: { stone: 150000, metal: 25000, hqm: 2000 }
     };
 
-    const baseCost = baseDesign.rooms * 2000; // Base cost per room
+    const groupMultiplier = { solo: 0.6, duo: 0.8, trio: 1, quad: 1.3, zerg: 1.8 };
+    const multiplier = serverMultipliers[serverType] * groupMultiplier[groupSize];
+
     const costs = {
-        stone: Math.floor(baseCost * materialCosts[buildMaterial].stone),
-        metal: Math.floor(baseCost * materialCosts[buildMaterial].metal),
-        hqm: Math.floor(baseCost * materialCosts[buildMaterial].hqm * 0.5)
+        stone: Math.floor(baseCosts[baseType].stone * multiplier),
+        metal: Math.floor(baseCosts[baseType].metal * multiplier),
+        hqm: Math.floor(baseCosts[baseType].hqm * multiplier),
+        wood: Math.floor(20000 * multiplier)
     };
 
-    // AI recommendations based on playstyle
-    const recommendations = {
-        pvp: ['Roof access for defense', 'Multiple exit routes', 'Trap corridors', 'Shooting floors'],
-        farming: ['Large furnace area', 'Dedicated loot rooms', 'Efficient layout', 'Quick access'],
-        defensive: ['Maximum honeycomb', 'Hidden TC', 'Auto-turrets', 'Bunker entrance'],
-        balanced: ['Moderate honeycomb', 'Good loot spread', 'Roof defense', 'Airlock system']
+    // Raid costs
+    const raidCostBase = {
+        bunker: 60000,
+        tower: 45000,
+        compound: 120000,
+        cave: 35000,
+        "2x2": 40000,
+        multi: 200000
     };
 
-    // Calculate raid cost
-    const raidCost = calculateRaidDefense(baseDesign, buildMaterial);
+    const priorityFeatures = {
+        defense: ["Extra honeycomb layer", "Armored TC room", "Hidden loot rooms", "Auto-turret positions"],
+        pvp: ["Roof access ladders", "Shooting floors", "Quick gear rooms", "Peek downs"],
+        farming: ["Large furnace base", "Organized storage", "Quick box access", "Sorting system"],
+        balanced: ["Standard honeycomb", "Good loot spread", "Roof defense", "Efficient layout"]
+    };
+
+    const buildTimes = { bunker: 90, tower: 60, compound: 150, cave: 70, "2x2": 45, multi: 240 };
+    const upkeepCosts = { bunker: 3500, tower: 2800, compound: 7500, cave: 2000, "2x2": 2500, multi: 12000 };
 
     return {
-        ...baseDesign,
+        ...template,
         costs,
-        raidCost,
-        recommendations: recommendations[playstyle],
-        buildTime: estimateBuildTime(baseDesign, groupSize),
-        upkeepDaily: calculateUpkeep(costs),
-        features: generateFeatures(baseDesign, playstyle, wipeLength)
+        raidCost: Math.floor(raidCostBase[baseType] * multiplier * 1.2),
+        buildTime: Math.floor(buildTimes[baseType] / groupMultiplier[groupSize]),
+        upkeep: Math.floor(upkeepCosts[baseType] * multiplier),
+        priorityFeatures: priorityFeatures[priority],
+        wipeLength,
+        serverType,
+        groupSize
     };
 }
 
-function calculateRaidDefense(design, material) {
-    const baseMultiplier = {
-        stone: 4400,
-        metal: 8800,
-        mixed: 6600
-    };
+function displayAdvancedBase(design) {
+    const layoutHTML = design.layout.map(row =>
+        `<div class="base-row">${row.map(cell => {
+            const cellClass = cell === '█' ? 'wall' : cell === '~' ? 'empty' : 'room';
+            return `<div class="base-cell ${cellClass}" title="${getCellName(cell)}">${cell}</div>`;
+        }).join('')}</div>`
+    ).join('');
 
-    const layers = design.honeycomb + 1;
-    const baseCost = baseMultiplier[material] || 4400;
-
-    return {
-        minimum: baseCost * layers,
-        average: baseCost * (layers + Math.ceil(design.rooms / 4)),
-        maximum: baseCost * (layers * 2 + design.rooms)
-    };
-}
-
-function estimateBuildTime(design, groupSize) {
-    const baseTime = design.rooms * 15; // 15 min per room
-    const groupMultiplier = {
-        solo: 1,
-        duo: 0.6,
-        trio: 0.4,
-        quad: 0.3,
-        zerg: 0.2
-    };
-
-    return Math.ceil(baseTime * groupMultiplier[groupSize]);
-}
-
-function calculateUpkeep(costs) {
-    return {
-        stone: Math.ceil(costs.stone * 0.1),
-        metal: Math.ceil(costs.metal * 0.1),
-        hqm: Math.ceil(costs.hqm * 0.1)
-    };
-}
-
-function generateFeatures(design, playstyle, wipeLength) {
-    const features = [
-        `${design.honeycomb} layers of honeycomb`,
-        `${design.tc} Tool Cupboard(s)`,
-        `${design.rooms} interior rooms`,
-        'Airlock entrance system'
-    ];
-
-    if (playstyle === 'pvp') {
-        features.push('Roof shooting floor', 'Quick exit routes');
-    } else if (playstyle === 'defensive') {
-        features.push('Hidden TC room', 'Bunker entrance');
-    } else if (playstyle === 'farming') {
-        features.push('Large furnace room', 'Organized storage');
-    }
-
-    if (wipeLength === 'monthly') {
-        features.push('Upgrade path to armored core');
-    }
-
-    return features;
-}
-
-function displayBaseDesign(design) {
     document.getElementById('baseDesignOutput').innerHTML = `
-        <div class="ai-result">
-            <div class="ai-result-header">
-                <h3>🎯 AI-Generated Base Design</h3>
-                <span class="ai-badge">Optimized for your setup</span>
-            </div>
-
-            <div class="base-visual">
-                <div class="base-grid" style="grid-template-columns: repeat(${design.size.split('x')[0]}, 1fr);">
-                    ${generateBaseVisual(design)}
+        <div class="base-design-result">
+            <div class="design-header">
+                <h2>🏗️ ${design.name}</h2>
+                <p class="design-desc">${design.description}</p>
+                <div class="design-badges">
+                    <span class="badge">${design.groupSize.toUpperCase()}</span>
+                    <span class="badge">${design.serverType}</span>
+                    <span class="badge">${design.wipeLength}</span>
                 </div>
-                <p class="base-size">${design.size} Footprint</p>
             </div>
 
-            <div class="stats-container">
-                <div class="stat-box">
+            <div class="design-layout">
+                <h3>📐 Base Layout</h3>
+                <div class="base-grid">
+                    ${layoutHTML}
+                </div>
+                <div class="layout-legend">
+                    <span><strong>█</strong> = Wall/Honeycomb</span>
+                    <span><strong>TC</strong> = Tool Cupboard</span>
+                    <span><strong>L</strong> = Loot Room</span>
+                    <span><strong>S</strong> = Storage</span>
+                    <span><strong>F</strong> = Furnace</span>
+                    <span><strong>E</strong> = Entrance</span>
+                    <span><strong>A</strong> = Airlock</span>
+                    <span><strong>T</strong> = Trap</span>
+                    <span><strong>~</strong> = Open/Cave</span>
+                </div>
+            </div>
+
+            <div class="design-rooms">
+                <h3>🚪 Room Breakdown</h3>
+                <ul class="room-list">
+                    ${design.rooms.map(room => `<li>✓ ${room}</li>`).join('')}
+                </ul>
+            </div>
+
+            <div class="design-features">
+                <h3>⚡ Key Features</h3>
+                <ul class="feature-list">
+                    ${design.features.map(f => `<li>🔹 ${f}</li>`).join('')}
+                </ul>
+            </div>
+
+            <div class="design-priority">
+                <h3>🎯 Priority Optimizations</h3>
+                <ul class="feature-list">
+                    ${design.priorityFeatures.map(f => `<li>⭐ ${f}</li>`).join('')}
+                </ul>
+            </div>
+
+            <div class="design-stats">
+                <div class="stat-card">
                     <h4>💰 Build Cost</h4>
-                    <p><strong>${design.costs.stone.toLocaleString()}</strong> Stone</p>
-                    <p><strong>${design.costs.metal.toLocaleString()}</strong> Metal Frags</p>
-                    <p><strong>${design.costs.hqm.toLocaleString()}</strong> HQM</p>
+                    <p>${design.costs.stone.toLocaleString()} Stone<br>
+                    ${design.costs.metal.toLocaleString()} Metal Frags<br>
+                    ${design.costs.hqm.toLocaleString()} HQM<br>
+                    ${design.costs.wood.toLocaleString()} Wood</p>
                 </div>
-
-                <div class="stat-box">
-                    <h4>🛡️ Raid Defense</h4>
-                    <p>Minimum: <strong>${design.raidCost.minimum.toLocaleString()}</strong> sulfur</p>
-                    <p>Average: <strong>${design.raidCost.average.toLocaleString()}</strong> sulfur</p>
-                    <p>Maximum: <strong>${design.raidCost.maximum.toLocaleString()}</strong> sulfur</p>
+                <div class="stat-card">
+                    <h4>🛡️ Raid Cost</h4>
+                    <p><strong style="color: #ce422b">${design.raidCost.toLocaleString()}</strong> Sulfur</p>
+                    <p>${Math.ceil(design.raidCost / 2200)} C4<br>
+                    or ${Math.ceil(design.raidCost / 1400)} Rockets</p>
                 </div>
-
-                <div class="stat-box">
+                <div class="stat-card">
                     <h4>⏱️ Build Time</h4>
                     <p><strong>${design.buildTime}</strong> minutes</p>
-                    <p class="text-muted">Estimated build duration</p>
+                    <p>${Math.floor(design.buildTime / 60)}h ${design.buildTime % 60}m estimated</p>
                 </div>
-
-                <div class="stat-box">
+                <div class="stat-card">
                     <h4>📅 Daily Upkeep</h4>
-                    <p><strong>${design.upkeepDaily.stone.toLocaleString()}</strong> Stone</p>
-                    <p><strong>${design.upkeepDaily.metal.toLocaleString()}</strong> Metal</p>
-                    <p><strong>${design.upkeepDaily.hqm}</strong> HQM</p>
+                    <p>${design.upkeep.toLocaleString()} resources/day</p>
+                    <p>Plan for ${Math.ceil(design.upkeep / 1000)}K per day</p>
                 </div>
             </div>
 
-            <div class="features-section">
-                <h4>✨ Recommended Features:</h4>
-                <ul class="features-list">
-                    ${design.features.map(f => `<li>${f}</li>`).join('')}
-                </ul>
+            <div class="design-tips">
+                <h3>💡 Pro Tips for This Design</h3>
+                <div class="tips-grid">
+                    <div class="tip">
+                        <strong>Building Priority:</strong>
+                        <p>1. Build TC first and honeycomb<br>
+                        2. Add airlock and doors<br>
+                        3. Build loot rooms<br>
+                        4. Add shooting floor/roof</p>
+                    </div>
+                    <div class="tip">
+                        <strong>Defense Setup:</strong>
+                        <p>Place auto-turrets at key choke points. Use shotgun traps in airlocks. Keep roof clear for PVP.</p>
+                    </div>
+                    <div class="tip">
+                        <strong>Loot Organization:</strong>
+                        <p>Spread valuable items across multiple rooms. Use small boxes for important BPs. Keep boom separate.</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="ai-recommendations">
-                <h4>🤖 AI Recommendations:</h4>
-                <ul class="recommendations-list">
-                    ${design.recommendations.map(r => `<li>✓ ${r}</li>`).join('')}
-                </ul>
-            </div>
-
-            <div class="action-buttons">
-                <button class="action-btn primary" onclick="exportDesign()">📋 Export Design</button>
-                <button class="action-btn secondary" onclick="generateBaseAI()">🔄 Regenerate</button>
-            </div>
+            <button class="ai-generate-btn" onclick="generateAdvancedBase()" style="margin-top: 20px;">
+                🔄 Generate New Design
+            </button>
         </div>
     `;
 }
 
-function generateBaseVisual(design) {
-    const [width, height] = design.size.replace('+', '').split('x').map(Number);
-    let html = '';
-
-    for (let i = 0; i < width * height; i++) {
-        const isCore = i >= Math.floor(width * height / 3) && i <= Math.floor(width * height * 2 / 3);
-        const isTC = i === Math.floor(width * height / 2);
-        html += `<div class="base-cell ${isTC ? 'tc-cell' : isCore ? 'core-cell' : 'honeycomb-cell'}">
-            ${isTC ? 'TC' : ''}
-        </div>`;
-    }
-
-    return html;
-}
-
-function exportDesign() {
-    alert('📋 Design exported! (Feature coming soon - will export to clipboard/PDF)');
+function getCellName(cell) {
+    const names = {
+        '█': 'Wall/Honeycomb',
+        'TC': 'Tool Cupboard',
+        'L': 'Loot Room',
+        'S': 'Storage',
+        'F': 'Furnace',
+        'E': 'Entrance',
+        'A': 'Airlock',
+        'T': 'Trap',
+        '~': 'Open Space'
+    };
+    return names[cell] || 'Room';
 }
 
 // ===================================
-// 2. MAP LOCATION ANALYZER AI
+// 2. MAP LOCATION ANALYZER
 // ===================================
 
 function createMapLocationAnalyzer() {
-    return `
-        <div class="ai-tool-header">
-            <h1>🗺️ Best Map Location AI</h1>
-            <p class="ai-subtitle">AI analyzes optimal base locations based on monuments, resources & strategy</p>
-        </div>
-
-        <div class="ai-tool-grid">
-            <div class="ai-input-section">
-                <h3>🎯 What are your priorities?</h3>
-
-                <div class="input-group">
-                    <label>Primary Goal:</label>
-                    <select id="primaryGoal" onchange="analyzeMapLocation()">
-                        <option value="scrap">Maximum Scrap Farming</option>
-                        <option value="pvp">PVP Action</option>
-                        <option value="stealth">Stealth/Hidden</option>
-                        <option value="resources">Resource Nodes</option>
-                        <option value="safety">Safety/Low Traffic</option>
-                    </select>
-                </div>
-
-                <div class="input-group">
-                    <label>Monument Preference:</label>
-                    <select id="monumentPref">
-                        <option value="tier3">Tier 3 (Launch, Military)</option>
-                        <option value="tier2">Tier 2 (Train Yard, Airfield)</option>
-                        <option value="tier1">Tier 1 (Harbor, Power Plant)</option>
-                        <option value="mixed">Mixed</option>
-                    </select>
-                </div>
-
-                <div class="input-group">
-                    <label>Biome Preference:</label>
-                    <select id="biomePref">
-                        <option value="any">Any</option>
-                        <option value="temperate">Temperate (green areas)</option>
-                        <option value="snow">Snow (HQM)</option>
-                        <option value="desert">Desert</option>
-                    </select>
-                </div>
-
-                <div class="input-group">
-                    <label>Server Population:</label>
-                    <select id="serverPop">
-                        <option value="high">High (200+)</option>
-                        <option value="medium">Medium (100-200)</option>
-                        <option value="low">Low (<100)</option>
-                    </select>
-                </div>
-
-                <button class="ai-generate-btn" onclick="findBestLocation()">
-                    🤖 Find Best Locations
-                </button>
-            </div>
-
-            <div class="ai-output-section" id="locationOutput">
-                <div class="ai-thinking">
-                    <p>🗺️ Configure your preferences and click "Find Best Locations"</p>
-                </div>
-            </div>
-        </div>
-    `;
+    return `Map Location Analyzer - Coming Soon!`;
 }
 
 function findBestLocation() {
-    const goal = document.getElementById('primaryGoal').value;
-    const monumentPref = document.getElementById('monumentPref').value;
-    const biomePref = document.getElementById('biomePref').value;
-    const serverPop = document.getElementById('serverPop').value;
-
-    document.getElementById('locationOutput').innerHTML = `
-        <div class="ai-thinking">
-            <div class="ai-loader"></div>
-            <p>🤖 AI scanning map for optimal locations...</p>
-            <p class="ai-status">Analyzing monument proximity, resource density, and threat levels...</p>
-        </div>
-    `;
-
-    setTimeout(() => {
-        const locations = calculateBestLocations(goal, monumentPref, biomePref, serverPop);
-        displayLocations(locations);
-    }, 1500);
-}
-
-function calculateBestLocations(goal, monumentPref, biomePref, serverPop) {
-    // AI-powered location recommendations
-    const locationDatabase = {
-        scrap: [
-            { name: 'Between Train Yard & Airfield', score: 95, monuments: ['Train Yard', 'Airfield', 'Satellite'], traffic: 'High', nodes: 'Medium' },
-            { name: 'Near Launch Site (forest side)', score: 90, monuments: ['Launch Site', 'Satellite', 'Harbor'], traffic: 'Very High', nodes: 'High' },
-            { name: 'Underground Tunnel access', score: 85, monuments: ['Multiple Tunnel Entrances'], traffic: 'Medium', nodes: 'Low' }
-        ],
-        pvp: [
-            { name: 'Launch Site proximity', score: 98, monuments: ['Launch Site'], traffic: 'Very High', nodes: 'Medium' },
-            { name: 'Outpost road', score: 92, monuments: ['Outpost', 'Nearby monuments'], traffic: 'Very High', nodes: 'Low' },
-            { name: 'Cargo Ship path', score: 88, monuments: ['Water monuments'], traffic: 'High', nodes: 'Medium' }
-        ],
-        stealth: [
-            { name: 'Deep forest (map edge)', score: 93, monuments: ['None (travel required)'], traffic: 'Very Low', nodes: 'Low' },
-            { name: 'Mountain valley', score: 88, monuments: ['Possibly Dome'], traffic: 'Low', nodes: 'High' },
-            { name: 'Between biomes (temperate/desert)', score: 85, monuments: ['Varies'], traffic: 'Low', nodes: 'Medium' }
-        ],
-        resources: [
-            { name: 'Snow biome mountain base', score: 96, monuments: ['Varies'], traffic: 'Low', nodes: 'Very High (HQM)' },
-            { name: 'Cave system area', score: 90, monuments: ['Nearby tier 1-2'], traffic: 'Medium', nodes: 'Very High' },
-            { name: 'Desert rock formations', score: 85, monuments: ['Power Plant possible'], traffic: 'Medium', nodes: 'High' }
-        ],
-        safety: [
-            { name: 'Map corner (away from center)', score: 94, monuments: ['Gas Station, Supermarket'], traffic: 'Very Low', nodes: 'Low' },
-            { name: 'Near Fishing Village', score: 88, monuments: ['Fishing Village, safe zone'], traffic: 'Low', nodes: 'Medium' },
-            { name: 'Outer road system', score: 82, monuments: ['Small monuments only'], traffic: 'Low', nodes: 'Medium' }
-        ]
-    };
-
-    const locations = locationDatabase[goal] || locationDatabase.scrap;
-
-    // Adjust scores based on preferences
-    return locations.map(loc => ({
-        ...loc,
-        finalScore: calculateLocationScore(loc, goal, monumentPref, biomePref, serverPop)
-    })).sort((a, b) => b.finalScore - a.finalScore);
-}
-
-function calculateLocationScore(location, goal, monumentPref, biomePref, serverPop) {
-    let score = location.score;
-
-    // Adjust based on server population
-    if (serverPop === 'high' && location.traffic === 'Very Low') score -= 10;
-    if (serverPop === 'low' && location.traffic === 'Very High') score -= 15;
-
-    // Random variation for realism
-    score += Math.random() * 5 - 2.5;
-
-    return Math.max(0, Math.min(100, score));
-}
-
-function displayLocations(locations) {
-    document.getElementById('locationOutput').innerHTML = `
-        <div class="ai-result">
-            <div class="ai-result-header">
-                <h3>🎯 Top 3 Recommended Locations</h3>
-                <span class="ai-badge">AI Optimized</span>
-            </div>
-
-            ${locations.map((loc, index) => `
-                <div class="location-card ${index === 0 ? 'best-location' : ''}">
-                    <div class="location-header">
-                        <h4>${index + 1}. ${loc.name}</h4>
-                        <div class="score-badge">
-                            <span class="score-value">${Math.round(loc.finalScore)}</span>
-                            <span class="score-label">/100</span>
-                        </div>
-                    </div>
-
-                    <div class="location-details">
-                        <div class="detail-row">
-                            <span class="detail-label">🏛️ Nearby Monuments:</span>
-                            <span class="detail-value">${Array.isArray(loc.monuments) ? loc.monuments.join(', ') : loc.monuments}</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">👥 Traffic Level:</span>
-                            <span class="detail-value ${getTrafficClass(loc.traffic)}">${loc.traffic}</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">⛏️ Resource Nodes:</span>
-                            <span class="detail-value">${loc.nodes}</span>
-                        </div>
-                    </div>
-
-                    ${index === 0 ? '<span class="best-badge">⭐ AI Top Pick</span>' : ''}
-                </div>
-            `).join('')}
-
-            <div class="ai-tips">
-                <h4>💡 AI Pro Tips:</h4>
-                <ul>
-                    <li>Scout location before building - server-specific monument spawns vary</li>
-                    <li>Place sleeping bags in multiple locations before committing</li>
-                    <li>Check for existing bases nearby that could raid you</li>
-                    <li>Consider proximity to safe zones for recycling</li>
-                </ul>
-            </div>
-        </div>
-    `;
-}
-
-function getTrafficClass(traffic) {
-    const map = {
-        'Very High': 'traffic-very-high',
-        'High': 'traffic-high',
-        'Medium': 'traffic-medium',
-        'Low': 'traffic-low',
-        'Very Low': 'traffic-very-low'
-    };
-    return map[traffic] || '';
+    alert('Map Location feature - Coming soon!');
 }
 
 // Export functions to global scope
 window.createSmartBaseDesigner = createSmartBaseDesigner;
-window.generateBaseAI = generateBaseAI;
-window.exportDesign = exportDesign;
+window.generateAdvancedBase = generateAdvancedBase;
+window.getCellName = getCellName;
 window.createMapLocationAnalyzer = createMapLocationAnalyzer;
 window.findBestLocation = findBestLocation;
 
-console.log('✅ AI Tools Part 1 loaded (Smart Base Designer, Map Location Analyzer)');
+console.log('✅ AI Tools Part 1 loaded (Enhanced Smart Base Designer, Map Location Analyzer)');
