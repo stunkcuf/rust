@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Inventory Tracking System for managing supplies, purchases, budgets, and locations">
+    <meta name="theme-color" content="#2563eb">
+    <title>Inventory Tracker</title>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/icon-192.png">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="loginScreen" class="screen">
+        <div class="login-container">
+            <h1>📦 Inventory Tracker</h1>
+            <form id="loginForm">
+                <input type="text" id="loginUsername" placeholder="Username" required>
+                <input type="password" id="loginPassword" placeholder="Password" required>
+                <button type="submit">Login</button>
+                <p class="toggle-auth">
+                    Don't have an account? <a href="#" id="showRegister">Register</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Screen -->
+    <div id="registerScreen" class="screen hidden">
+        <div class="login-container">
+            <h1>📦 Create Account</h1>
+            <form id="registerForm">
+                <input type="text" id="registerUsername" placeholder="Username" required>
+                <input type="email" id="registerEmail" placeholder="Email" required>
+                <input type="password" id="registerPassword" placeholder="Password" required>
+                <select id="registerRole" required>
+                    <option value="">Select Role</option>
+                    <option value="user">User</option>
+                    <option value="manager">Manager</option>
+                    <option value="admin">Admin</option>
+                </select>
+                <button type="submit">Register</button>
+                <p class="toggle-auth">
+                    Already have an account? <a href="#" id="showLogin">Login</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main App -->
+    <div id="appScreen" class="screen hidden">
+        <!-- Top Navigation -->
+        <nav class="top-nav">
+            <div class="nav-brand">📦 Inventory</div>
+            <button id="menuToggle" class="menu-toggle">☰</button>
+            <div class="nav-user">
+                <span id="userName"></span>
+                <button id="logoutBtn">Logout</button>
+            </div>
+        </nav>
+
+        <!-- Side Navigation -->
+        <aside id="sideNav" class="side-nav">
+            <button class="nav-item" data-view="dashboard">📊 Dashboard</button>
+            <button class="nav-item" data-view="inventory">📦 Inventory</button>
+            <button class="nav-item" data-view="items">🏷️ Items</button>
+            <button class="nav-item" data-view="purchases">💰 Purchases</button>
+            <button class="nav-item" data-view="budgets">💵 Budgets</button>
+            <button class="nav-item" data-view="requests">📝 Requests</button>
+            <button class="nav-item" data-view="locations">📍 Locations</button>
+            <button class="nav-item admin-only" data-view="users">👥 Users</button>
+        </aside>
+
+        <!-- Main Content -->
+        <main id="mainContent">
+            <!-- Dashboard View -->
+            <div id="dashboardView" class="view active">
+                <h2>Dashboard</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Low Stock Items</h3>
+                        <p class="stat-number" id="lowStockCount">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Overstock Items</h3>
+                        <p class="stat-number" id="overstockCount">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Pending Requests</h3>
+                        <p class="stat-number" id="pendingRequestsCount">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Pending Purchases</h3>
+                        <p class="stat-number" id="pendingPurchasesCount">0</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Low Stock Alert</h3>
+                    <div id="lowStockList" class="table-container"></div>
+                </div>
+
+                <div class="section">
+                    <h3>Recent Requests</h3>
+                    <div id="recentRequestsList" class="table-container"></div>
+                </div>
+            </div>
+
+            <!-- Inventory View -->
+            <div id="inventoryView" class="view">
+                <div class="view-header">
+                    <h2>Inventory Management</h2>
+                    <button class="btn-primary" id="updateInventoryBtn">Update Stock</button>
+                </div>
+                <div class="filters">
+                    <select id="inventoryLocationFilter">
+                        <option value="">All Locations</option>
+                    </select>
+                    <button id="showLowStockBtn" class="btn-secondary">Show Low Stock</button>
+                    <button id="showOverstockBtn" class="btn-secondary">Show Overstock</button>
+                </div>
+                <div id="inventoryList" class="table-container"></div>
+            </div>
+
+            <!-- Items View -->
+            <div id="itemsView" class="view">
+                <div class="view-header">
+                    <h2>Items Catalog</h2>
+                    <button class="btn-primary" id="addItemBtn">Add Item</button>
+                </div>
+                <div id="itemsList" class="table-container"></div>
+            </div>
+
+            <!-- Purchases View -->
+            <div id="purchasesView" class="view">
+                <div class="view-header">
+                    <h2>Purchase Orders</h2>
+                    <button class="btn-primary" id="createPurchaseBtn">Create Purchase</button>
+                </div>
+                <div class="filters">
+                    <select id="purchaseLocationFilter">
+                        <option value="">All Locations</option>
+                    </select>
+                    <select id="purchaseStatusFilter">
+                        <option value="">All Statuses</option>
+                        <option value="pending">Pending</option>
+                        <option value="approved">Approved</option>
+                        <option value="completed">Completed</option>
+                        <option value="cancelled">Cancelled</option>
+                    </select>
+                </div>
+                <div id="purchasesList" class="table-container"></div>
+            </div>
+
+            <!-- Budgets View -->
+            <div id="budgetsView" class="view">
+                <div class="view-header">
+                    <h2>Budget Management</h2>
+                    <button class="btn-primary" id="createBudgetBtn">Create Budget</button>
+                </div>
+                <div class="filters">
+                    <select id="budgetLocationFilter">
+                        <option value="">All Locations</option>
+                    </select>
+                </div>
+                <div id="budgetsList" class="table-container"></div>
+            </div>
+
+            <!-- Requests View -->
+            <div id="requestsView" class="view">
+                <div class="view-header">
+                    <h2>Item Requests</h2>
+                    <button class="btn-primary" id="createRequestBtn">Create Request</button>
+                </div>
+                <div class="filters">
+                    <select id="requestLocationFilter">
+                        <option value="">All Locations</option>
+                    </select>
+                    <select id="requestStatusFilter">
+                        <option value="">All Statuses</option>
+                        <option value="pending">Pending</option>
+                        <option value="approved">Approved</option>
+                        <option value="fulfilled">Fulfilled</option>
+                        <option value="rejected">Rejected</option>
+                    </select>
+                </div>
+                <div id="requestsList" class="table-container"></div>
+            </div>
+
+            <!-- Locations View -->
+            <div id="locationsView" class="view">
+                <div class="view-header">
+                    <h2>Location Management</h2>
+                    <button class="btn-primary" id="addLocationBtn">Add Location</button>
+                </div>
+                <div id="locationsList" class="table-container"></div>
+            </div>
+
+            <!-- Users View (Admin Only) -->
+            <div id="usersView" class="view admin-only">
+                <div class="view-header">
+                    <h2>User Management</h2>
+                </div>
+                <div id="usersList" class="table-container"></div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toastContainer"></div>
+
+    <script src="/app.js"></script>
+</body>
+</html>
