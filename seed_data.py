@@ -2,12 +2,23 @@
 """
 Seed data script for Inventory Tracking System
 Populates database with items and locations
+
+Usage:
+  python3 seed_data.py                          # Local (http://localhost:3000)
+  python3 seed_data.py https://your-app.fly.dev # Remote deployment
 """
 
 import requests
 import json
+import sys
 
-API_BASE = "http://localhost:3000/api"
+# Get API base from command line or use localhost
+if len(sys.argv) > 1:
+    API_BASE = sys.argv[1].rstrip('/') + "/api"
+else:
+    API_BASE = "http://localhost:3000/api"
+
+print(f"Using API: {API_BASE}")
 
 # First, create an admin user and get token
 def register_admin():

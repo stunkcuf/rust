@@ -1,0 +1,40 @@
+# Git
+.git
+.gitignore
+
+# Rust
+target/
+Cargo.lock
+**/*.rs.bk
+
+# Database
+*.db
+*.db-shm
+*.db-wal
+
+# Environment
+.env
+*.log
+
+# Documentation
+*.md
+!README.md
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Deployment
+fly.toml
